@@ -24,7 +24,18 @@ for (let index = 1; index <= selMode; index++) {
     containerGrid.append(divGrid);
     divGrid.innerHTML = index;
 
-    divGrid.addEventListener("click", function () {
-        this.style.backgroundColor = "cyan"
-    })
+}
+window.onclick = e => {
+    let selDiv = e.target
+    for (let index = 1; index <= selMode; index++) {
+        const divGrid = document.getElementsByClassName("cella")[index - 1]
+        if (divGrid == selDiv) {
+            if (divGrid.classList.contains("cyan")) {
+                divGrid.classList.remove("cyan")
+            }
+            else {
+                divGrid.classList.add("cyan")
+            }
+        }
+    }
 }
