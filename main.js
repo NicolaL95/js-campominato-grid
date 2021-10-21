@@ -17,9 +17,20 @@ else {
     window.alert("non hai inserito una difficoltà valida!")
 }
 
+function calcLine(selMode) {
+    for (let i = 0; i < 100; i++) {
+        if (selMode / i == i) {
+            return i;
+        }
+    }
+}
+
 for (let index = 1; index <= selMode; index++) {
     const divGrid = document.createElement("div")
     divGrid.className = "cella"
+    let line = calcLine(selMode)
+    divGrid.style.width = `calc(100% / ${line})`
+
 
     containerGrid.append(divGrid);
     divGrid.innerHTML = index;
